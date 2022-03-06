@@ -4,14 +4,14 @@ import { HomePageModule } from './pages/home.page-module';
 import { AboutUsPageModule } from './pages/about-us.page-module';
 
 const routes: Routes = [
-  { 
-        path: '', 
-        loadChildren: () => HomePageModule
-      },
-  { 
-        path: 'o-nas', 
-        loadChildren: () => AboutUsPageModule
-      }
+  {
+    path: '',
+    loadChildren: () => HomePageModule
+  },
+  {
+    path: 'o-nas',
+    loadChildren: () => AboutUsPageModule
+  }
 ];
 
 @NgModule({
