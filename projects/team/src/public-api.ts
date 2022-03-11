@@ -1,7 +1,6 @@
+import { from } from "rxjs";
+
 /*
  * Public API Surface of team
  */
-
-export * from './lib/team.service';
-export * from './lib/team.component';
-export * from './lib/team.module';
+export * from './lib/adapters/primary/ui/team-list.component-module';
