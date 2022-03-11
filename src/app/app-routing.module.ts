@@ -4,6 +4,7 @@ import { HomePageModule } from './pages/home.page-module';
 import { AboutUsPageModule } from './pages/about-us.page-module';
 import { TeamPageModule } from './pages/team.page-module';
 import { EmployeesPageModule } from './pages/employees.page-module';
+import { EmployeeDetailsPageModule } from './pages/employee-details.page-module';
 
 const routes: Routes = [
   {
@@ -14,14 +15,18 @@ const routes: Routes = [
     path: 'o-nas',
     loadChildren: () => AboutUsPageModule
   },
-  { 
-        path: 'team', 
-        loadChildren: () => TeamPageModule
-      },
-  { 
-        path: 'pracownik', 
-        loadChildren: () => EmployeesPageModule
-      }
+  {
+    path: 'team',
+    loadChildren: () => TeamPageModule
+  },
+  {
+    path: 'pracownik',
+    loadChildren: () => EmployeesPageModule
+  },
+  {
+    path: 'pracownik/:name',
+    loadChildren: () => EmployeeDetailsPageModule
+  }
 ];
 
 @NgModule({
