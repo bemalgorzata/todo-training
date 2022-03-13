@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'lib-contact-form',
@@ -6,4 +7,10 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContactFormComponent { }
+export class ContactFormComponent {
+    contact = "Hello contact!";
+    onClick() {
+        alert("Cześć!")
+    };
+    readonly messageForm: FormGroup = new FormGroup({ email: new FormControl(), text: new FormControl() });
+}
