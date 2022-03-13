@@ -1,37 +1,14 @@
 <div class="container">
     <div class="row" style="margin: 35px;">
-        <div class="col">
+        <div class="col" *ngFor="let employee of employees$ | async">
             <div class="card" style="width: 18rem;">
-                <img [src]=employee1.image class="card-img-top" routerLink="/pracownik/Andrzej" style="rounded"
+                <img [src]="employee.image" class="card-img-top" routerLink="/pracownik/Andrzej" style="rounded"
                     alt="andrzej">
                 <div class="card-body ">
-                    <h5 class="card-title fw-bold">{{employee1.name}}</h5>
-                    <p class="card-text">{{employee1.info}}</p>
-                    <a class="btn btn-info" routerLink="/pracownik/Andrzej">Poznaj Andrzeja</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src={{employee2.image}} class="card-img-top" routerLink="/pracownik/Adam" style="rounded"
-                    height="360" alt="adam">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{employee2.name}}</h5>
-                    <p class="card-text">{{employee2.info}}</p>
-                    <a routerLink="/pracownik/Adam" class="btn btn-info">Poznaj Adama</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src={{employee3.image}} class="card-img-top" routerLink="/pracownik/Justyna" style="rounded"
-                    height="360" alt="justyna">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{employee3.name}}</h5>
-                    <p class="card-text">{{employee3.info}}</p>
-                    <a routerLink="/pracownik/Justyna" class="btn btn-info">Poznaj Justynę</a>
+                    <h5 class="card-title fw-bold">{{employee.name}}</h5>
+                    <p class="card-text">{{employee.info}}</p>
+                    <a class="btn btn-info" [routerLink]="employee.link">{{employee.button}}</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
