@@ -28,10 +28,10 @@ const routes: Routes = [
     path: 'pracownik/:name',
     loadChildren: () => EmployeeDetailsPageModule
   },
-  { 
-        path: 'kontakt', 
-        loadChildren: () => ContactUsPageModule
-      }
+  {
+    path: 'kontakt',
+    loadChildren: () => ContactUsPageModule
+  }
 ];
 
 @NgModule({
