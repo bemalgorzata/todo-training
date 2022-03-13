@@ -12,7 +12,7 @@ import { ContactFormComponentModule } from '../../../projects/messages/src/lib/a
         component: ContactUsPage,
       }
     ]),
-    ContactFormComponentModule
+    ContactFormComponentModule,
   ],
   declarations: [ContactUsPage],
   providers: [],
