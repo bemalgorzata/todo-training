@@ -1,6 +1,6 @@
 <h1 (click)="onClick()">{{contact}}</h1>
 
-<form [formGroup]="messageForm">
+<form [formGroup]="messageForm" (ngSubmit)="Submit(messageForm)">
     <input type="text" formControlName="email" placeholder="Email">
     <input type="text" formControlName="text" placeholder="Text">
     <input type="submit" value="Submit">

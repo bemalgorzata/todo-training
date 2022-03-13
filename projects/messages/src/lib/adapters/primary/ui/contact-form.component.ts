@@ -9,8 +9,21 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ContactFormComponent {
     contact = "Hello contact!";
+
     onClick() {
-        alert("Cześć!")
+        this.contact = "Cześć!"
     };
-    readonly messageForm: FormGroup = new FormGroup({ email: new FormControl(), text: new FormControl() });
+
+    readonly messageForm: FormGroup = new FormGroup({
+        email: new FormControl(),
+        text: new FormControl()
+    });
+
+
+    // Submit(messageForm: FormGroup) {
+    //     alert(messageForm.get("email").value)
+    // };
+
+    Submit(messageForm: FormGroup): void { alert(messageForm.get("email").value); }
+
 }
