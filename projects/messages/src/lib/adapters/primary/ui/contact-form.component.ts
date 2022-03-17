@@ -20,10 +20,9 @@ export class ContactFormComponent {
     });
 
 
-    // Submit(messageForm: FormGroup) {
-    //     alert(messageForm.get("email").value)
-    // };
-
-    Submit(messageForm: FormGroup): void { alert(messageForm.get("email").value); }
+    Submit(messageForm: FormGroup): void {
+        console.log(messageForm.getRawValue());
+        alert(`email: ${messageForm.value.email}, text: ${messageForm.value.text}`);
+    }
 
 }
