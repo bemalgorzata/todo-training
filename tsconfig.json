@@ -28,6 +28,10 @@
       "@team": [
         "projects/team/src/public-api.ts"
       ],
+      "navigation": [
+        "dist/navigation/navigation",
+        "dist/navigation"
+      ],
       "@messages": [
         "projects/messages/src/public-api.ts"
       ]
