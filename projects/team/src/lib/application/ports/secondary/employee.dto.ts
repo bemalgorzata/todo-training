@@ -3,5 +3,6 @@ export interface EmployeeDTO {
   readonly image: string;
   readonly info: string;
   readonly link: string;
-  readonly button: string
+  readonly button: string;
+  readonly alt: string;
 }
