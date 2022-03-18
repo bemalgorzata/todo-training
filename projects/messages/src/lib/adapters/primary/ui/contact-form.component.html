@@ -1,7 +1,8 @@
-<h1 (click)="onClick()">{{contact}}</h1>
+<h1 class="display-2 text-center mb-4" (click)="onClick()">{{contact}}</h1>
+
 
 <form [formGroup]="messageForm" (ngSubmit)="Submit(messageForm)">
-    <input type="text" formControlName="email" placeholder="Email">
-    <input type="text" formControlName="text" placeholder="Text">
-    <input type="submit" value="Submit">
+    <div class="text-center"><input class="mb-3 fs-3" type="text" formControlName="email" placeholder="Email"></div>
+    <div class="text-center"><input class="mb-5 fs-3" type="text" formControlName="text" placeholder="Text"></div>
+    <div class="d-grid gap-2"><input type="submit" class="btn mt-2 fs-2 btn btn-outline-info" value="Submit"></div>
 </form>
