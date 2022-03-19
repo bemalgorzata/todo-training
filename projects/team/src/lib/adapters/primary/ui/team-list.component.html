@@ -1,13 +1,15 @@
 <div class="container">
     <div class="row" style="margin: 35px;">
         <div class="col" *ngFor="let employee of employees$ | async">
-            <div class="card" style="width: 18rem;">
-                <img [src]="employee.imageUrl" class="card-img-top" [routerLink]="employee.link" style="rounded"
-                    alt="andrzej">
+            <div class="card text-center" style="width: 18rem;">
+                <img [src]="employee.imageUrl" class="card-img-top" routerLink="/pracownik/{{employee.name}}"
+                    style="rounded" alt={{employee.alt}}>
                 <div class="card-body ">
                     <h5 class="card-title fw-bold">{{employee.name}}</h5>
                     <p class="card-text">{{employee.info}}</p>
-                    <a class="btn btn-info" [routerLink]="employee.link">{{employee.button}}</a>
+                    <p class="card-text"><b>Dział: </b>{{employee.department.name}}</p>
+                    <p class="card-text"><b>Pracownik: </b>{{employee.department.employeeCount}}</p>
+                    <a class="btn btn-info" routerLink="/pracownik/{{employee.name}}">{{employee.buttonInfo}}</a>
                 </div>
             </div>
         </div>
