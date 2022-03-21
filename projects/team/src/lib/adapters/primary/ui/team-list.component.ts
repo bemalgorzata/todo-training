@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { EmployeeDTO } from '../../../application/ports/secondary/employee.dto';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { GETS_ALL_EMPLOYEE_DTO, GetsAllEmployeeDtoPort } from '../../../application/ports/secondary/gets-all-employee.dto-port';
 
 @Component({
     selector: 'lib-team-list',
@@ -10,42 +11,8 @@ import { EmployeeDTO } from '../../../application/ports/secondary/employee.dto';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TeamListComponent {
-    employees$: Observable<EmployeeDTO[]> = of([
-        {
-            id: "1",
-            name: "Andrzej",
-            imageUrl: "https://scontent.fpoz3-1.fna.fbcdn.net/v/t1.6435-9/38026346_1754868611276419_1625273276152414208_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_ohc=HEHMrUj36dEAX9MvMrn&_nc_ht=scontent.fpoz3-1.fna&oh=00_AT8S-DEBV_ABjq9HxVsWdaJSfn8z4vX2yBWDvZiuez7gAg&oe=624ABB41",
-            info: "Andrzej lubi zjeżdzać na nartach.",
-            buttonInfo: "Poznaj Andrzeja",
-            alt: "Andrzej",
-            department: {
-                name: "Jazda",
-                employeeCount: 1
-            },
-        },
-        {
-            id: "2",
-            name: "Adam",
-            imageUrl: "https://scontent.fpoz3-1.fna.fbcdn.net/v/t1.6435-9/161738566_287508819404472_9085678602602917289_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=l4N-xvpkXUsAX_Pz0cP&_nc_ht=scontent.fpoz3-1.fna&oh=00_AT83h42ImNBUFvsnlY2nTric3LnLCzbUYaYi0ycNrc7-0Q&oe=624D3119",
-            info: "Adam lubi skakać na nartach.",
-            buttonInfo: "Poznaj Adama",
-            alt: "Adam",
-            department: {
-                name: "Skoki",
-                employeeCount: 2
-            },
-        },
-        {
-            id: "3",
-            name: "Justyna",
-            imageUrl: "https://scontent.fpoz3-1.fna.fbcdn.net/v/t1.18169-9/15181127_1663000840410932_2209517998189993037_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=cDTPsYC41uMAX9dWEO9&_nc_ht=scontent.fpoz3-1.fna&oh=00_AT_mwXPJyShBkqHf15VwqaloDqHsUW2d2uYqHJxZIAwsgg&oe=624CBE33",
-            info: "Justyna lubi biegać na nartch.",
-            buttonInfo: "Poznaj Justynę",
-            alt: "justyna",
-            department: {
-                name: "Biegi",
-                employeeCount: 3
-            },
-        }
-    ])
+    employees$: Observable<EmployeeDTO[]> = this._getsAllEmployeeDto.getAll();
+
+    constructor(@Inject(GETS_ALL_EMPLOYEE_DTO) private _getsAllEmployeeDto: GetsAllEmployeeDtoPort) {
+    }
 }
