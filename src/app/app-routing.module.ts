@@ -6,6 +6,7 @@ import { TeamPageModule } from './pages/team.page-module';
 import { EmployeesPageModule } from './pages/employees.page-module';
 import { EmployeeDetailsPageModule } from './pages/employee-details.page-module';
 import { ContactUsPageModule } from './pages/contact-us.page-module';
+import { AdminPageModule } from './pages/admin.page-module';
 
 const routes: Routes = [
   {
@@ -31,7 +32,11 @@ const routes: Routes = [
   {
     path: 'kontakt',
     loadChildren: () => ContactUsPageModule
-  }
+  },
+  { 
+        path: 'admin', 
+        loadChildren: () => AdminPageModule
+      }
 ];
 
 @NgModule({

@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AboutUsPage } from './about-us.page';
+import { AdminPage } from './admin.page';
 
 @NgModule({
   imports: [CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: AboutUsPage,
+        component: AdminPage,
       }
-    ])
-  ],
-  declarations: [AboutUsPage],
+    ])],
+  declarations: [AdminPage],
   providers: [],
   exports: []
 })
-export class AboutUsPageModule {
+export class AdminPageModule {
 }
