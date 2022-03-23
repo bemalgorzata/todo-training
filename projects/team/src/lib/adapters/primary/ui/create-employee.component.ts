@@ -13,10 +13,9 @@ export class CreateEmployeeComponent {
     name: new FormControl(),
     info: new FormControl(),
     imageUrl: new FormControl(),
-    // department: new FormGroup({
-    //   departmentName: new FormControl(),
-    //   employeeCount: new FormControl()
-    // }),
+    departmentName: new FormControl(),
+    employeeCount: new FormControl()
+    ,
   });
 
   constructor(@Inject(ADDS_EMPLOYEE_DTO) private _addsEmployeeDto: AddsEmployeeDtoPort) {
@@ -30,10 +29,10 @@ export class CreateEmployeeComponent {
       name: createEmployee.get("name").value,
       info: createEmployee.get("info").value,
       imageUrl: createEmployee.get("imageUrl").value,
-      // department: {
-      //   name: createEmployee.get('departmentName').value,
-      //   employeeCount: createEmployee.get('employeeCount').value,
-      // }
+      department: {
+        name: createEmployee.get('departmentName').value,
+        employeeCount: createEmployee.get('employeeCount').value,
+      }
     });
     this.createEmployee.reset();
   }
