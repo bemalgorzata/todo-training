@@ -9,14 +9,15 @@ import { ADDS_EMPLOYEE_DTO, AddsEmployeeDtoPort } from '../../../application/por
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateEmployeeComponent {
-  readonly createEmployee: FormGroup = new FormGroup(
-    {
-      name: new FormControl(),
-      info: new FormControl(),
-      imageUrl: new FormControl(),
-      id: new FormControl(),
-      department: new FormControl(),
-    });
+  readonly createEmployee: FormGroup = new FormGroup({
+    name: new FormControl(),
+    info: new FormControl(),
+    imageUrl: new FormControl(),
+    // department: new FormGroup({
+    //   departmentName: new FormControl(),
+    //   employeeCount: new FormControl()
+    // }),
+  });
 
   constructor(@Inject(ADDS_EMPLOYEE_DTO) private _addsEmployeeDto: AddsEmployeeDtoPort) {
   }
@@ -25,9 +26,15 @@ export class CreateEmployeeComponent {
     if (createEmployee.invalid) {
       return;
     }
-    this._addsEmployeeDto.add(createEmployee.getRawValue());
+    this._addsEmployeeDto.add({
+      name: createEmployee.get("name").value,
+      info: createEmployee.get("info").value,
+      imageUrl: createEmployee.get("imageUrl").value,
+      // department: {
+      //   name: createEmployee.get('departmentName').value,
+      //   employeeCount: createEmployee.get('employeeCount').value,
+      // }
+    });
     this.createEmployee.reset();
-
   }
 }
-
