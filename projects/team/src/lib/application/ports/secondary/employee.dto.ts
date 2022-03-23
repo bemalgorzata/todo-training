@@ -5,6 +5,5 @@ export interface EmployeeDTO {
   readonly name: string;
   readonly imageUrl: string;
   readonly info: string;
-  readonly buttonInfo: string;
   readonly department: DepartmentDTO;
 }

@@ -16,8 +16,6 @@ export class CreateEmployeeComponent {
       imageUrl: new FormControl(),
       id: new FormControl(),
       department: new FormControl(),
-      // employeeCount: new FormControl(),
-      buttonInfo: new FormControl()
     });
 
   constructor(@Inject(ADDS_EMPLOYEE_DTO) private _addsEmployeeDto: AddsEmployeeDtoPort) {
@@ -27,15 +25,9 @@ export class CreateEmployeeComponent {
     if (createEmployee.invalid) {
       return;
     }
-    this._addsEmployeeDto.add({
-      name: createEmployee.get("name").value,
-      info: createEmployee.get("info").value,
-      imageUrl: createEmployee.get("imageUrl").value,
-      id: createEmployee.get("id").value,
-      department: createEmployee.get("department").value,
-      // employeeCount: createEmployee.get("employeeCount").value,
-      buttonInfo: createEmployee.get("department").value
+    this._addsEmployeeDto.add(createEmployee.getRawValue());
+    this.createEmployee.reset();
 
-    });
   }
 }
+
