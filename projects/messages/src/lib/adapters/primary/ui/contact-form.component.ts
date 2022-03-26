@@ -23,10 +23,6 @@ export class ContactFormComponent {
     });
 
 
-    // Submit(messageForm: FormGroup): void {
-    //     console.log(messageForm.getRawValue());
-    //     alert(`email: ${messageForm.value.email}, text: ${messageForm.value.text}, name: ${messageForm.value.name}`);
-    // }
     constructor(@Inject(ADDS_MESSAGE_DTO) private _addsMessageDto: AddsMessageDtoPort) {
     }
 
@@ -34,7 +30,13 @@ export class ContactFormComponent {
         if (addMessage.invalid) {
             return;
         }
-        this._addsMessageDto.add(addMessage.getRawValue());
+        alert("Dziękujemy!");
+        this._addsMessageDto.add({
+            name: addMessage.get('name').value,
+            email: addMessage.get('email').value,
+            text: addMessage.get('text').value,
+        });
         addMessage.reset();
     }
+
 } 
