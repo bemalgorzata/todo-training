@@ -12,9 +12,13 @@ import { GETS_ONE_EMPLOYEE_DTO, GetsOneEmployeeDtoPort } from '../../../applicat
 })
 export class EmployeeDetailComponent {
     params$ = this._activatedRoute.params
-    employee$: Observable<EmployeeDTO> = this._getsOneEmployeeDto.getOne('XSNRXCrPigcte0DVghxX');
+    employee$: Observable<EmployeeDTO> = this._getsOneEmployeeDto.getOne(
+        this._activatedRoute.snapshot.params.employeeId
+    );
 
     constructor(
         private _activatedRoute: ActivatedRoute,
-        @Inject(GETS_ONE_EMPLOYEE_DTO) private _getsOneEmployeeDto: GetsOneEmployeeDtoPort) { }
+        @Inject(GETS_ONE_EMPLOYEE_DTO)
+        private _getsOneEmployeeDto: GetsOneEmployeeDtoPort
+    ) { }
 }

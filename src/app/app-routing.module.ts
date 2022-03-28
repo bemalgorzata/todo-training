@@ -26,17 +26,17 @@ const routes: Routes = [
     loadChildren: () => EmployeesPageModule
   },
   {
-    path: 'pracownik/:name',
+    path: 'pracownik/:employeeId',
     loadChildren: () => EmployeeDetailsPageModule
   },
   {
     path: 'kontakt',
     loadChildren: () => ContactUsPageModule
   },
-  { 
-        path: 'admin', 
-        loadChildren: () => AdminPageModule
-      }
+  {
+    path: 'admin',
+    loadChildren: () => AdminPageModule
+  }
 ];
 
 @NgModule({

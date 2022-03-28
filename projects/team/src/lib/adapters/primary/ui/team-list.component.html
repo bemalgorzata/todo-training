@@ -2,7 +2,7 @@
     <div class="row" style="margin: 35px;">
         <div class="col" *ngFor="let employee of employees$ | async">
             <div class="card text-center" style="width: 18rem;">
-                <img [src]="employee.imageUrl" class="card-img-top" routerLink="/pracownik/{{employee.name}}"
+                <img [src]="employee.imageUrl" class="card-img-top" routerLink="/pracownik/{{employee.id}}"
                     style="rounded">
                 <div class="card-body ">
                     <h5 class="card-title fw-bold">{{employee.name}}</h5>
