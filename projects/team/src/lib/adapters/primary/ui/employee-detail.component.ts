@@ -1,5 +1,8 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EmployeeDTO } from '../../../application/ports/secondary/employee.dto';
+import { GETS_ONE_EMPLOYEE_DTO, GetsOneEmployeeDtoPort } from '../../../application/ports/secondary/gets-one-employee.dto-port';
 
 @Component({
     selector: 'lib-employee-detail',
@@ -9,5 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeDetailComponent {
     params$ = this._activatedRoute.params
-    constructor(private _activatedRoute: ActivatedRoute) { }
+    employee$: Observable<EmployeeDTO> = this._getsOneEmployeeDto.getOne('XSNRXCrPigcte0DVghxX');
+
+    constructor(
+        private _activatedRoute: ActivatedRoute,
+        @Inject(GETS_ONE_EMPLOYEE_DTO) private _getsOneEmployeeDto: GetsOneEmployeeDtoPort) { }
 }
