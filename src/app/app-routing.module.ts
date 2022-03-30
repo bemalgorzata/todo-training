@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageModule } from './pages/home.page-module';
 import { AboutUsPageModule } from './pages/about-us.page-module';
 import { TeamPageModule } from './pages/team.page-module';
-import { EmployeesPageModule } from './pages/employees.page-module';
 import { EmployeeDetailsPageModule } from './pages/employee-details.page-module';
 import { ContactUsPageModule } from './pages/contact-us.page-module';
 import { AdminPageModule } from './pages/admin.page-module';
@@ -17,17 +16,10 @@ const routes: Routes = [
     path: 'o-nas',
     loadChildren: () => AboutUsPageModule
   },
-  {
-    path: 'team',
-    loadChildren: () => TeamPageModule
-  },
+
   {
     path: 'pracownik',
-    loadChildren: () => EmployeesPageModule
-  },
-  {
-    path: 'pracownik/:employeeId',
-    loadChildren: () => EmployeeDetailsPageModule
+    loadChildren: () => TeamPageModule
   },
   {
     path: 'kontakt',
